@@ -1,21 +1,37 @@
-const quotes = [
-    "The only way to do great work is to love what you do. - Steve Jobs",
-    "In the middle of difficulty lies opportunity. - Albert Einstein",
-    "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
-    // Add more quotes
-];
+const QUOTABLE_API_URL = "https://api.quotable.io/random";
+
+async function fetchRandomQuote() {
+    try {
+        const response = await fetch(QUOTABLE_API_URL);
+        if (!response.ok) {
+            throw new Error("Failed to fetch quote");
+        }
+        const data = await response.json();
+        return {
+            content: data.content,
+            author: data.author,
+        };
+    } catch (error) {
+        console.error("Error fetching quote:", error);
+        return {
+            content: "Failed to fetch a quote. Please try again.",
+            author: "",
+        };
+    }
+}
 
 const quoteContainer = document.getElementById("quote-container");
 const quoteText = document.getElementById("quote");
+const authorText = document.getElementById("author");
 const generateButton = document.getElementById("generate-button");
 
-function getRandomQuote() {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    const randomQuote = quotes[randomIndex];
-    quoteText.textContent = randomQuote;
+async function displayRandomQuote() {
+    const quoteData = await fetchRandomQuote();
+    quoteText.textContent = quoteData.content;
+    authorText.textContent = "- " + quoteData.author;
 }
 
-generateButton.addEventListener("click", getRandomQuote);
+generateButton.addEventListener("click", displayRandomQuote);
 
 // Initial quote
-getRandomQuote();
+displayRandomQuote();
