@@ -1,2 +1,2 @@
 # random-quote-generator
-First Project. Creates random quotes. 
+First Project. Generate Random quotes using the Quotable API.
