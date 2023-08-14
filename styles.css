@@ -1,4 +1,4 @@
-/* Reset default margin and padding for better consistency */
+/* Reset default margin and padding */
 * {
     margin: 0;
     padding: 0;
@@ -29,6 +29,12 @@ body {
     color: #333; /* Darker text color for better readability */
 }
 
+/* Style the author text */
+#author {
+    font-style: italic;
+    color: #555; /* Slightly lighter color for the author text */
+}
+
 /* Style the "Generate Quote" button */
 #generate-button {
     padding: 10px 20px;
@@ -43,4 +49,11 @@ body {
 
 #generate-button:hover {
     background-color: #2974a1; /* Darker shade on hover */
+}
+
+/* Style the loading indicator */
+#loading {
+    display: none;
+    margin-top: 10px;
+    color: #999;
 }
