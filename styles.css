@@ -57,3 +57,17 @@ body {
     margin-top: 10px;
     color: #999;
 }
+
+@media (max-width: 600px) {
+    #quote {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    #author {
+        font-size: 14px;
+    }
+    #generate-button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+}

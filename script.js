@@ -5,7 +5,7 @@ const quoteContainer = document.getElementById("quote-container");
 const quoteText = document.getElementById("quote");
 const authorText = document.getElementById("author");
 const generateButton = document.getElementById("generate-button");
-const loading = document.getElementById("loading"); // New addition
+const loading = document.getElementById("loading");
 
 async function fetchRandomQuote() {
     try {
