@@ -36,7 +36,7 @@ jobs:
       - name: Set up Environment Variables
         run: |
           echo "QUOTABLE_API_KEY=${{ secrets.QUOTABLE_API_KEY }}" >> $GITHUB_ENV
-          echo "UNSPLASH_ACCESS_KEY=${{ secrets.UNSPLASH_ACCESS_KEY }}" >> $GITHUB_ENV
+          echo "UNSPLASH_API_KEY=${{ secrets.UNSPLASH_API_KEY }}" >> $GITHUB_ENV
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
