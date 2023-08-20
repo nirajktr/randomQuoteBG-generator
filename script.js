@@ -1,5 +1,5 @@
 const QUOTABLE_API_URL = "https://api.quotable.io/random";
-const UNSPLASH_ACCESS_KEY = "UNSPLASH_API_KEY";
+const UNSPLASH_ACCESS_KEY = "UNSPLASH_ACCESS_KEY";
 
 // Cache DOM elements
 const quoteContainer = document.getElementById("quote-container");
@@ -8,11 +8,37 @@ const authorText = document.getElementById("author");
 const generateButton = document.getElementById("generate-button");
 const loading = document.getElementById("loading");
 
+async function generateRandomImage() {
+    const response = await fetch(
+        `https://api.unsplash.com/photos/random?count=1&client_id=${UNSPLASH_ACCESS_KEY}`
+    );
+    const data = await response.json();
+
+    if (data.length > 0) {
+        return data[0].urls.regular;
+    } else {
+        return "https://static.vecteezy.com/system/resources/previews/005/572/340/original/foggy-landscape-forest-in-the-morning-beautiful-sunrise-mist-cover-mountain-background-at-countryside-winter-free-photo.jpg"; // Set a fallback image URL here
+    }
+}
+
+async function generateImageBasedOnQuote(quoteText) {
+    const query = encodeURIComponent(quoteText);
+    const response = await fetch(
+        `https://api.unsplash.com/search/photos?query=${query}&per_page=1&client_id=${UNSPLASH_ACCESS_KEY}`
+    );
+    const data = await response.json();
+
+    if (data.results.length > 0) {
+        return data.results[0].urls.regular;
+    } else {
+        return generateRandomImage();
+    }
+}
+
 async function fetchRandomQuote() {
     try {
         const response = await fetch(QUOTABLE_API_URL);
         if (!response.ok) {
-            console.error("Response status:", response.status);
             throw new Error("Failed to fetch quote");
         }
         const data = await response.json();
@@ -27,21 +53,6 @@ async function fetchRandomQuote() {
             author: "",
         };
     }
-    
-}
-
-async function generateImageBasedOnQuote(quoteText) {
-    const query = encodeURIComponent(quoteText);
-    const response = await fetch(
-        `https://api.unsplash.com/search/photos?query=${query}&per_page=1&client_id=${UNSPLASH_ACCESS_KEY}`
-    );
-    const data = await response.json();
-
-    if (data.results.length > 0) {
-        return data.results[0].urls.regular;
-    } else {
-        return "URL_TO_DEFAULT_IMAGE";
-    }
 }
 
 async function displayRandomQuote() {
@@ -54,11 +65,10 @@ async function displayRandomQuote() {
         authorText.textContent = "- " + quoteData.author;
 
         const randomImageUrl = await generateImageBasedOnQuote(quoteData.content);
-        const backgroundImage = document.getElementById("background-image"); // Select the background image container
-        backgroundImage.style.backgroundImage = `url(${randomImageUrl})`;
+        document.getElementById("background-image").style.backgroundImage = `url(${randomImageUrl})`;
 
-    } catch (error) {
-        console.error("Error fetching quote:", error);
+    } catch (quoteError) {
+        console.error("Error fetching quote:", quoteError);
         quoteText.textContent = "Failed to fetch a quote. Please try again.";
         authorText.textContent = "";
     } finally {
