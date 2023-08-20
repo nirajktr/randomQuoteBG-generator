@@ -1,5 +1,5 @@
 const QUOTABLE_API_URL = "https://api.quotable.io/random";
-const UNSPLASH_ACCESS_KEY = "UNSPLASH_API_KEY";
+const UNSPLASH_ACCESS_KEY = "lEj8M4SFKrWX8O_plVsJwDWXf1MkEkjkzq_DV1N4GTk";
 
 // Cache DOM elements
 const quoteContainer = document.getElementById("quote-container");
