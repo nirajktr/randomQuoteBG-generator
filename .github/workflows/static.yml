@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Display Current Directory
+        run: pwd
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -33,7 +35,10 @@ jobs:
         run: |
           echo "UNSPLASH_API_KEY=${{ secrets.UNSPLASH_API_KEY }}" >> $GITHUB_ENV
       - name: Build and Deploy
-        run: npm run build
+        run: |
+          echo "Running build in current directory:"
+          pwd
+          npm run build
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
