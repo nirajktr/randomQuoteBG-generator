@@ -5,11 +5,9 @@ A simple web application that fetches and displays random quotes using the Quota
 
 # About Me
 
-Hey there! 👋 I'm Niraj, and this is my very first project on GitHub. I'm excited to share my web-dev journey with this simple yet fun project.
-
+Hey there! 👋 I'm Niraj.
 For my first project on GitHub, I wanted to create something practical and interactive. That's how I came up with the idea of building a Random Quote Generator. Through this project, I've not only learned the basics of HTML, CSS, and JavaScript but also how to interact with APIs and implement features like local storage caching for a smoother user experience. One of the latest features I've added is the ability to set the background image based on the fetched quote, creating a visual connection between the quote and its backdrop. I'll continue to add new features and improvements to this project as I am still learning and growing.
 
-Thanks for stopping by and checking out my project. Feel free to explore, use, and contribute. Your feedback and suggestions are greatly appreciated!
 
 ## Features
 
@@ -19,7 +17,6 @@ Thanks for stopping by and checking out my project. Feel free to explore, use, a
 - Implements local storage caching for improved performance and offline access.
 - Responsive design using media queries for various screen sizes.
 - Sets the background image based on the fetched quote to create a visual connection.
-- Stay tuned for more!
 
 ## Usage
 
