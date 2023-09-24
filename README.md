@@ -17,11 +17,11 @@ A web application that fetches and displays random quotes using the Quotable API
 1. Clone the repository:
 
    ```sh
-   git clone https://github.com/Nizzy0/random-quote-generator.git
+   git clone https://github.com/Nizzy0/randomQuoteBG-generator
 
 2. Navigate to the project directory:
 
    ```sh
-   cd random-quote-generator
+   cd randomQuoteBG-generator
    
 3. Open the index.html file in your web browser to use the application
