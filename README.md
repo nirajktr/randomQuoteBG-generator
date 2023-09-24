@@ -1,4 +1,4 @@
-# Random Quote Generator
+# Random Quote and Background Generator
 First Repo on GitHub.
 
 A web application that fetches and displays random quotes using the Quotable API, and then displays a background image related to the quote using the Unsplash API.
