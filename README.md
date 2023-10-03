@@ -24,4 +24,4 @@ A web application that fetches and displays random quotes using the Quotable API
    ```sh
    cd randomQuoteBG-generator
    
-3. Open the index.html file in your web browser to use the application
+3. Open the index.html file in your browser to use the web application.
